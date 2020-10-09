@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alimstudio Free Hotspot - Login</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="css/font.css" rel="stylesheet">
+	<link href="css/solid.min.css" rel="stylesheet">
+	<link href="css/fontawesome.min.css" rel="stylesheet">
+  <!-- <script
+  src="http://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+<body>
+  $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript">
+    <!--
+        function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+        }
+    //-->
+    </script>
+  $(endif)
+
+	<img class="wave" src="img/wave.png">
+	<div class="container">
+    <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="img/hey.svg" alt="slide_01" />
+            </div>
+            <div class="slide slide-2">
+              <img src="img/accept_tasks.svg" alt="slide_02"  />
+              <div class="layer-text">
+                <h3>Kamu Ingin Internetan?</h3>
+              </div>
+            </div>
+            <div class="slide slide-3">
+              <img src="img/around_the_world.svg" alt="slide_03"  />
+              <div class="layer-text">
+                <h3>Tapi Tidak Punya Koneksi?</h3>
+              </div>
+            </div>
+            <div class="slide slide-4">
+              <img src="img/bg.svg" alt="slide_04"/>
+              <div class="layer-text">
+                <h3>Jangan Murung!!!</h3>
+              </div>
+            </div>
+            <div class="slide slide-5">
+              <img src="img/Chat.svg" alt="slide_05"/>
+              <div class="layer-text">
+                <h3>Silahkan Hubungi Kami</h3>
+              </div>
+            </div>
+            <div class="slide slide-6">
+              <img src="img/share.svg" alt="slide_06"/>
+              <div class="layer-text">
+                <h3>Kami Akan Membantumu Terhubung</h3>
+              </div>
+            </div>
+            <div class="slide slide-7">
+              <img src="img/work_time.svg" alt="slide_07"/>
+              <div class="layer-text">
+                <h3>Dengan Teman-temanmu</h3>
+              </div>
+            </div>
+            <div class="slide slide-8">
+              <img src="img/email.svg" alt="slide_08"/>
+              <div class="layer-text">
+                <h3>Apabila ada kendala, Hubungi Kami!</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
+		<!-- <div class="img">
+			<img src="img/bg.svg">
+		</div> -->
+		<div class="login-content">
+			<form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+				<!-- <img src="img/avatar.svg"> -->
+        <!-- <h4 class="title">Selamat Datang, Ini adalah portal untuk melakukan login pada Hotspot Alimstudio</h4> -->
+				  <h2 style="color: #2dd198">Alim<span style="color: #3f3d56">studio</span></h2>
+          $(if error)
+            <div style="color: #FFFFFF; font-size: 13px; background: #FF5500;width: 100%;padding: 12px 10px;border-radius: 50px;">
+              $(error)
+            </div>
+            <br>
+          $(endif)
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input name="username" type="text" value="$(username)" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input name="password" type="password" class="input">
+            	   </div>
+            	</div>
+            	<!-- <a href="#">Forgot Password?</a> -->
+              $(if trial == 'yes')
+                <div class="row" style="margin: 0px -5px; margin-top: 10px;">
+                  <div class="col">
+                  	<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">
+                      <input type="button" class="btn btn-trial" value="Trial">
+                    </a>
+                  </div>
+                  <div class="col">
+                    <input type="submit" class="btn" value="Login">
+                  </div>
+                </div>
+              $(endif)
+
+              $(if trial == 'no')
+                <input type="submit" class="btn" value="Login">
+              $(endif)
+              <!-- <input type="submit" class="btn" value="Langganan"> -->
+              <span>
+              Belum Punya Voucher? <br/>Berlangganan <a target="_blank" href="http://api.whatsapp.com/send?phone=082277640336">Disini</a>
+              </span>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+    <!--
+      document.login.username.focus();
+    //-->
+    </script>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

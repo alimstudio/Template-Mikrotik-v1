@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  $(if refresh-timeout)
+  <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+  $(endif)
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Alimstudio Free Hotspot - Status</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="css/font.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script language="JavaScript">
+  <!--
+
+  $(if advert-pending == 'yes')
+      var popup = '';
+      function focusAdvert() {
+    if (window.focus) popup.focus();
+      }
+      function openAdvert() {
+    popup = open('$(link-advert)', 'hotspot_advert', '');
+    setTimeout("focusAdvert()", 1000);
+      }
+  $(endif)
+      function openLogout() {
+    if (window.name != 'hotspot_status') return true;
+          open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+    window.close();
+    return false;
+      }
+
+    $(if login-by == 'trial')
+    function callUrl(){
+      // window.open('https://www.youtube.com/watch?v=pri3Xy5lJDE&t=8s', '_blank');
+      window.location.href = 'https://www.youtube.com/watch?v=pri3Xy5lJDE&t=8s';
+    }
+
+    setTimeout(callUrl, 3000);
+    $(endif)
+ //-->
+  </script>
+</head>
+<body $(if advert-pending == 'yes')
+  onLoad="openAdvert()"
+$(endif)>
+  	<img class="wave" src="img/wave.png">
+  	<div class="container">
+        <div class="slider">
+            <div class="slide-viewer">
+                <div class="slide-group">
+                    <div class="slide slide-1">
+                        <img src="img/hey.svg" alt="slide_01" />
+                    </div>
+                    <div class="slide slide-2">
+                        <img src="img/connected.svg" alt="slide_02"/>
+                        <div class="layer-text">
+                            <h3>Selamat Karena Telah Terhubung</h3>
+                        </div>
+                    </div>
+                    <div class="slide slide-3">
+                        <img src="img/all_device.svg" alt="slide_03"/>
+                        <div class="layer-text">
+                            <h3>Akun Anda Dapat Digunakan Untuk 2 Device Yang Berbeda</h3>
+                        </div>
+                    </div>
+                    <div class="slide slide-4">
+                        <img src="img/email.svg" alt="slide_04"/>
+                        <div class="layer-text">
+                            <h3>Apabila ada kendala, Hubungi Kami!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-buttons"></div>
+        </div>
+  		  <div class="login-content">
+            <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+  				      <h2 style="color: #2dd198">Alim<span style="color: #3f3d56">studio</span></h2>
+                <div class="table-status">
+                    <table class="table table-bordered table-responsive">
+                        $(if login-by == 'trial')
+                        <tr>
+                            <td class="name">Username : </td>
+                            <td>User Trial</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Status : </td>
+                            <td style="color: #FF5500">Trial User</td>
+                        </tr>
+                        $(elif login-by != 'mac')
+                        <tr>
+                            <td class="name">Username : </td>
+                            <td>$(username)</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Status : </td>
+                            <td style="color: #2dd198">Paid User</td>
+                        </tr>
+                        $(endif)
+                        <tr>
+                            <td class="name">IP Address : </td>
+                            <td>$(ip)</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Bytes Up/Down : </td>
+                            <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                        </tr>
+                        $(if session-time-left)
+                        <tr>
+                            <td class="name">Connected / Left : </td>
+                            <td>$(uptime) / $(session-time-left)</td>
+                        </tr>
+                        $(else)
+                        <tr>
+                            <td class="name">Connected : </td>
+                            <td>$(uptime)</td>
+                        </tr>
+                        $(endif)
+                        $(if blocked == 'yes')
+                        <tr>
+                            <td class="name">Status : </td>
+                            <td>
+                                <div style="color: #FF8080">
+                                    <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required
+                                </div>
+                            </td>
+                        </tr>
+                        $(elif refresh-timeout)
+                        <tr>
+                            <td class="name">Status Refresh : </td>
+                            <td>$(refresh-timeout)</td>
+                        </tr>
+                        $(endif)
+                    </table>
+              	</div>
+                $(if login-by-mac != 'yes')
+                <br>
+                <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+                <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+                <!-- end of user manager link -->
+                <input type="submit" class="btn" value="Logout">
+                $(endif)
+                <span>
+                    Ada Kendala? <a target="_blank" href="http://api.whatsapp.com/send?phone=082277640336">Hubungi Kami</a>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

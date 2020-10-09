@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Alimstudio Free Hotspot - Logout</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="css/font.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script language="JavaScript">
+<!--
+    function openLogin() {
+  if (window.name != 'hotspot_logout') return true;
+  open('$(link-login)', '_blank', '');
+  window.close();
+  return false;
+    }
+//-->
+  </script>
+</head>
+<body>
+  	<img class="wave" src="img/wave.png">
+  	<div class="container">
+        <div class="slider">
+            <div class="slide-viewer">
+                <div class="slide-group">
+                    <div class="slide slide-1">
+                        <img src="img/hey.svg" alt="slide_01" />
+                    </div>
+                    <div class="slide slide-2">
+                        <img src="img/thanks.svg" alt="slide_02"/>
+                        <div class="layer-text">
+                            <h3>Terima Kasih Sudah Menggunakan Hotspot Kami</h3>
+                        </div>
+                    </div>
+                    <div class="slide slide-3">
+                        <img src="img/backwork.svg" alt="slide_03"/>
+                        <div class="layer-text">
+                            <h3>Selamat Beraktivitas</h3>
+                        </div>
+                    </div>
+                    <div class="slide slide-4">
+                        <img src="img/email.svg" alt="slide_04"/>
+                        <div class="layer-text">
+                            <h3>Apabila ada kendala, Hubungi Kami!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-buttons"></div>
+        </div>
+  		  <div class="login-content">
+            <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+  				      <h2 style="color: #2dd198">Alim<span style="color: #3f3d56">studio</span></h2>
+                <div class="table-status">
+                    <table class="table table-bordered table-responsive">
+                        $(if login-by == 'trial')
+                        <tr>
+                            <td class="name">Username : </td>
+                            <td>User Trial</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Status : </td>
+                            <td style="color: #FF5500">Trial User</td>
+                        </tr>
+                        $(elif login-by != 'mac')
+                        <tr>
+                            <td class="name">Username : </td>
+                            <td>$(username)</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Status : </td>
+                            <td style="color: #2dd198">Paid User</td>
+                        </tr>
+                        $(endif)
+                        <tr>
+                            <td class="name">IP Address : </td>
+                            <td>$(ip)</td>
+                        </tr>
+                        <tr>
+                            <td class="name">MAC Address : </td>
+                            <td>$(mac)</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Bytes Up/Down : </td>
+                            <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                        </tr>
+                        $(if session-time-left)
+                        <tr>
+                            <td class="name">Time Left : </td>
+                            <td>$(session-time-left)</td>
+                        </tr>
+                        $(endif)
+                    </table>
+              	</div>
+                <input type="submit" class="btn" value="Login">
+                <span>
+                    Ada Kendala? <a target="_blank" href="http://api.whatsapp.com/send?phone=082277640336">Hubungi Kami</a>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
